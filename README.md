@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Frontend Mentor - FAQ Accordion Card
 
 ![Design preview for the FAQ Accordion Card coding challenge](./design/desktop-preview.jpg)
@@ -70,3 +71,7 @@ Feedback is always welcome, so if you have any to give on this challenge please 
 This challenge is completely free. Please share it with anyone who will find it useful for practice.
 
 **Have fun building!** 🚀
+=======
+# Frontend-Mentor__faq-accordion
+Una card, con preguntas desplegables.
+>>>>>>> 9d370a7fd05f033aaea3cd2b2a2f1624ae0b4bf6
