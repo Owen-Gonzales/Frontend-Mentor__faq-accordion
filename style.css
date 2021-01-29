@@ -1,0 +1,281 @@
+:root {
+    --color-title-primary: hsl(238, 29%, 16%);
+    --color-title-second:hsl(237, 12%, 33%);
+    --color-content-primary: hsl(240, 6%, 50%);
+    --color-special-primary: hsl(14, 88%, 65%);
+
+    font-size: 12px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.page {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient( hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+}
+
+.content-card {
+    min-width: 330px;
+    max-width: 1300px;
+    min-height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    border-radius: 40px;
+    background: #FFF;
+    box-shadow: 0 35px 25px -15px #0004;
+}
+
+    .content-card__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .content-card__woman {
+            width: 600px;
+            height: 455px;
+            position: relative;
+            top: -10px;
+            left: -18%;
+            background-image: url(image/illustration-woman-online-desktop.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: right bottom;
+        }
+
+            .content-card__woman::before {
+                content: '';
+                width: 300px;
+                height: 250px;
+                position: absolute;
+                top: calc(50% - 90px);
+                left: -50px;
+                background-image: url(image/illustration-box-desktop.svg);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .content-card__woman::after {
+                content: '';
+                width: 590px;
+                height: 580px;
+                position: absolute;    
+                top: -40px;
+                background-image: url(image/bg-pattern-desktop.svg);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+    .questions {
+        padding: 90px 25% 90px 0;
+    }
+
+        .questions__title {
+            margin-bottom: 30px;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--color-title-primary);
+        }
+
+        .questions__item {
+            border-bottom: 1px solid hsl(240, 5%, 91%);
+            padding: 20px 0;
+        }
+
+        .questions__question {
+            position: relative;
+            font-size: 1.5rem;
+            color: var(--color-title-second);
+            cursor: pointer; 
+
+            transition: 0.3 all ease;
+        }
+    
+            .questions__question:hover {
+                color: var(--color-special-primary);
+            }
+
+            .questions__question::after {
+                content: '';
+                width: 12px;
+                height: 8px;
+                position: absolute;
+                top: 5px;
+                right: 6px;
+                background-image: url(image/icon-arrow-down.svg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                transition: .2s all ease;
+            }
+
+            .questions__question.accordionActive {
+                font-weight: 700;
+                color: var(--color-title-primary);
+            }
+
+            .questions__question.accordionActive::after {
+                transform: rotateZ(180deg);
+            }
+
+        .questions__answer {
+            height: 0;
+            padding-right: 20px;
+            font-size: 1.4rem;
+            color: var(--color-content-primary);
+            opacity: 0;
+            cursor: default;
+            transition: .3s all ease;
+        }
+
+            .questions__question.accordionActive ~ .questions__answer{
+                height: initial;
+                padding-top: 20px;
+                opacity: 1;
+                cursor: text;
+            }
+
+        
+@media screen and (max-width: 1400px) {
+.content-card {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: minmax(250px, 1fr) minmax(300px, 2fr);
+    column-gap: 20px;
+    border-radius: 30px;
+}
+
+        .content-card__woman {
+            width: 270px;
+            height: 220px;
+            position: relative;
+            top: -10px;
+            left: 0;
+            background-image: url(image/illustration-woman-online-mobile.svg);
+        }
+
+            .content-card__woman::before {
+                display: none;
+            }
+
+            .content-card__woman::after {
+                width: 265px;
+                height: 115px;  
+                top: 140px;
+                left: 5px;
+                background-image: url(image/bg-pattern-mobile.svg);
+            }
+
+    .questions {
+        padding: 50px 30px 50px 0;
+    }
+
+        .questions__title {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .questions__item {
+            padding: 15px 0;
+        }
+
+        .questions__question {
+            padding-right: 20px;
+            font-size: 1.4rem;
+        }
+
+            .questions__question::after {
+                width: 12px;
+                right: 4px;
+            }
+
+        .questions__answer {
+            padding-right: 20px;
+            font-size: 1.2rem;
+        }
+
+            .questions__question.accordionActive ~ .questions__answer{
+                padding-top: 10px;
+            }
+}
+
+@media screen and (max-width: 650px) {
+    .page {
+        padding: 30px 30px 80px;
+    }
+
+    .content-card {
+        max-width: 600px;
+        min-height: 70vh;
+        margin-top: 150px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 200px 1fr;
+    }
+
+        .content-card__logo {
+            position: relative;
+        }
+
+            .content-card__SVG{
+                position: absolute;
+                top: -110px;
+            }
+
+                .content-card__woman {
+                    transform: scale(1.25);
+                }
+        
+        .questions {
+            padding: 0 30px 70px;
+        }
+
+            .questions__title {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            .questions__item {
+                padding: 25px 0;
+            }
+
+            .questions__answer {
+                padding-right: 30px;
+                font-size: 1.3rem;
+            }
+
+                .questions__question.accordionActive ~ .questions__answer{
+                    padding-top: 20px;
+                }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.page__footer{ width: 100vw; position: absolute; bottom: 15px; font-size: 1.5rem; text-align: center; color: hsl(273, 80%, 76%); }
+.page__footer a { color: hsl(228, 61%, 80%); text-decoration: none; }
